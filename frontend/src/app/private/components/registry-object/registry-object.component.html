@@ -1,0 +1,110 @@
+<div class="header">
+    <div class="header-left">
+        <div class="header-mid__title">
+            Карточка объекта
+        </div>
+        <div class="header-mid__title">
+            <b>Реестр объектов</b> 
+        </div>
+    </div>
+    <div class="header-mid">
+        <div class="header-logo">
+            <img src="../../../../assets/houses.svg" alt="">
+        </div>
+        <div class="header-title">EstateTrack</div>
+
+    </div>
+    <div class="header-right">
+        <div class="header-mid__title">
+            Решения по объектам
+        </div>
+        <div class="header-mid__title">
+            Уведомления
+        </div>
+        <img src="../../../../assets/profile-icon.svg" alt="">
+        <div class="header-right__item-burger">
+            <input id="menu-toggle" type="checkbox" />
+            <label id="hamburger-menu" class='menu-button-container' for="menu-toggle">
+                <div class="menu-button__burger">
+                    <div class='menu-button'></div>
+                </div>
+                <nav id="sidebar-menu">
+                    <ul>
+                        <li>Карточка объектов</li>
+                        <li><a href="#">Решения по объектам</a></li>
+                        <li>Уведомления</li>
+                    </ul>
+                </nav>
+            </label>
+
+        </div>
+    </div>
+</div>
+
+<div class="works-tabs">
+    <div style="background: #004987; color: white;" class="work-tab">
+        Реестр
+    </div>
+
+    <div [routerLink]="['../report']" class="work-tab">
+        Отчеты
+    </div>
+</div>
+
+<details open class="createproject">
+    <summary class="createproject-title">
+        <div><img src="../../../../assets/dropdown.svg" alt=""> Объект {{object.id}}</div> 
+        <div class="createproject-status">
+            Новый
+        </div>
+    </summary>
+    <div class="object-info">
+        <div class="object-info-item">
+            <b>Округ</b> : {{object.area}}
+        </div>
+        <div class="object-info-item">
+            <b>Район</b> : {{object.district}}
+        </div>
+        <div class="object-info-item">
+            <b>Адрес</b> : {{object.address}}
+        </div>
+        <div class="object-info-item">
+            <b>Состояние объекта</b> : {{object.object_condition}}
+        </div>
+        <div class="object-info-item">
+            <b>Тип объекта</b> : {{object.object_type}}
+        </div>
+        <div class="object-info-item">
+            <b>Площадь</b> : {{object.object_square}}
+        </div>
+        <div class="object-info-item">
+            <b>Собственник</b> : {{object.owner}}
+        </div>
+        <div class="object-info-item">
+            <b>Фактический пользователь</b> : {{object.actual_user}}
+        </div>
+    </div>
+    <div class="registry-open">
+        Открыть
+    </div>
+
+</details>
+<details open class="createproject">
+    <summary class="createproject-title">
+        <div><img src="../../../../assets/dropdown.svg" alt=""> Фото/видео объекта</div> 
+    </summary>
+
+</details>
+<details open class="createproject">
+    <summary class="createproject-title">
+        <div><img src="../../../../assets/dropdown.svg" alt=""> Объект на карте</div> 
+    </summary>
+
+</details>
+<details open class="createproject">
+    <summary class="createproject-title">
+        <div><img src="../../../../assets/dropdown.svg" alt=""> Повестка по объекту</div> 
+    </summary>
+
+</details>
+<div class="footer"></div>

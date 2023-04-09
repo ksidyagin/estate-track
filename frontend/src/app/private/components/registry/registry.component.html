@@ -1,0 +1,141 @@
+<div class="header">
+    <div class="header-left">
+        <div class="header-mid__title">
+            Карточка объекта
+        </div>
+        <div class="header-mid__title">
+            <b>Реестр объектов</b> 
+        </div>
+    </div>
+    <div class="header-mid">
+        <div class="header-logo">
+            <img src="../../../../assets/houses.svg" alt="">
+        </div>
+        <div class="header-title">EstateTrack</div>
+
+    </div>
+    <div class="header-right">
+        <div class="header-mid__title">
+            Решения по объектам
+        </div>
+        <div class="header-mid__title">
+            Уведомления
+        </div>
+        <img src="../../../../assets/profile-icon.svg" alt="">
+        <div class="header-right__item-burger">
+            <input id="menu-toggle" type="checkbox" />
+            <label id="hamburger-menu" class='menu-button-container' for="menu-toggle">
+                <div class="menu-button__burger">
+                    <div class='menu-button'></div>
+                </div>
+                <nav id="sidebar-menu">
+                    <ul>
+                        <li>Карточка объектов</li>
+                        <li><a href="#">Решения по объектам</a></li>
+                        <li>Уведомления</li>
+                    </ul>
+                </nav>
+            </label>
+
+        </div>
+    </div>
+</div>
+
+<div class="works-tabs">
+    <div style="background: #004987; color: white;" class="work-tab">
+        Реестр
+    </div>
+
+    <div [routerLink]="['../report']" class="work-tab">
+        Отчеты
+    </div>
+</div>
+<details open class="createproject">
+    <summary class="createproject-title">
+        <div><img src="../../../../assets/dropdown.svg" alt=""> Dashboard</div> 
+    </summary>
+    <div class="dashboard-info">
+        <div class="dashboard-item">
+            <div class="dashboard-item__count">
+                10
+            </div>
+            <div class="dashboard-item__line">
+            </div>
+            <div class="dashboard-item__descr">
+                новые объекты
+            </div>
+        </div>
+        <div style="background: #004987;" class="dashboard-item">
+            <div style="color: white;" class="dashboard-item__count">
+                5
+            </div>
+            <div class="dashboard-item__line">
+            </div>
+            <div style="color: white;" class="dashboard-item__descr">
+                объекты в работе
+            </div>
+        </div>
+        <div style="background: #456885;" class="dashboard-item">
+            <div style="color: white;" class="dashboard-item__count">
+                2
+            </div>
+            <div class="dashboard-item__line">
+            </div>
+            <div style="color: white;" class="dashboard-item__descr">
+                выход за срок поручения
+            </div>
+        </div>
+        <div style="background: white;" class="dashboard-item">
+            <div class="dashboard-item__count">
+                1
+            </div>
+            <div class="dashboard-item__line">
+            </div>
+            <div class="dashboard-item__descr">
+                у объекта работы завершены
+            </div>
+        </div>
+    </div>
+
+</details>
+<details *ngFor="let item of objects" open class="createproject">
+    <summary class="createproject-title">
+        <div><img src="../../../../assets/dropdown.svg" alt=""> Объект {{item.id}}</div> 
+        <div class="createproject-status">
+            Новый
+        </div>
+    </summary>
+    <div [routerLink]="['../object-card', item.id]" class="object-info">
+        <div class="object-info-item">
+            <b>Округ</b> : {{item.area}}
+        </div>
+        <div class="object-info-item">
+            <b>Район</b> : {{item.district}}
+        </div>
+        <div class="object-info-item">
+            <b>Адрес</b> : {{item.address}}
+        </div>
+        <div class="object-info-item">
+            <b>Состояние объекта</b> : {{item.object_condition}}
+        </div>
+        <div class="object-info-item">
+            <b>Тип объекта</b> : {{item.object_type}}
+        </div>
+        <div class="object-info-item">
+            <b>Площадь</b> : {{item.object_square}}
+        </div>
+        <div class="object-info-item">
+            <b>Собственник</b> : {{item.owner}}
+        </div>
+        <div class="object-info-item">
+            <b>Фактический пользователь</b> : {{item.actual_user}}
+        </div>
+    </div>
+    <div [routerLink]="['../registry-object', item.id]" class="registry-open">
+        Открыть
+    </div>
+
+</details>
+
+
+<div class="footer"></div>

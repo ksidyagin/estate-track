@@ -1,0 +1,239 @@
+<div class="header">
+    <div class="header-left">
+        <div class="header-mid__title">
+            <b>Карточка объекта</b>
+        </div>
+        <div [routerLink]="['../../registry']" class="header-mid__title">
+            Реестр объектов
+        </div>
+    </div>
+    <div class="header-mid">
+        <div class="header-logo">
+            <img src="../../../../assets/houses.svg" alt="">
+        </div>
+        <div class="header-title">EstateTrack</div>
+
+    </div>
+    <div class="header-right">
+        <div class="header-mid__title">
+            Решения по объектам
+        </div>
+        <div class="header-mid__title">
+            Уведомления
+        </div>
+        <img src="../../../../assets/profile-icon.svg" alt="">
+        <div class="header-right__item-burger">
+            <input id="menu-toggle" type="checkbox" />
+            <label id="hamburger-menu" class='menu-button-container' for="menu-toggle">
+                <div class="menu-button__burger">
+                    <div class='menu-button'></div>
+                </div>
+                <nav id="sidebar-menu">
+                    <ul>
+                        <li>Карточка объектов</li>
+                        <li><a href="#">Решения по объектам</a></li>
+                        <li>Уведомления</li>
+                    </ul>
+                </nav>
+            </label>
+
+        </div>
+    </div>
+</div>
+<div class="stepper">
+    <div style="border: 3px solid #004987;" class="stepper-step">1</div>
+    <div class="stepper-line"></div>
+    <div [routerLink]="['../../object-addons', object.id]" class="stepper-step">2</div>
+</div>
+<div class="works-tabs">
+    <div class="work-tab">
+        Загрузить данные из XML
+    </div>
+    <div class="work-tab">
+        Загрузить данные с помощью API
+    </div>
+</div>
+<div class="createproject">
+    <div class="createproject-title">
+        Карточка объекта
+        <div class="createproject-title-line"></div>
+    </div>
+    <form [formGroup]="objectForm" (ngSubmit)="save()" class="createproject-fields">
+        <div class="createproject-fields__pair">
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Округ
+                </div>
+                <input value="{{object.area}}" formControlName="area" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Район
+                </div>
+                <input  value="{{object.district}}" formControlName="district" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__pair">
+
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Адрес объекта
+                </div>
+                <input  value="{{object.object_address}}" formControlName="object_address" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__pair">
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Состояние объекта
+                </div>
+                <input value="{{object.object_condition}}" formControlName="object_condition" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Тип объекта
+                </div>
+                <input value="{{object.object_type}}" formControlName="object_type" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__triple">
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Площадь объекта
+                </div>
+                <input value="{{object.object_square}}" formControlName="object_square" class="createproject-field__input" type="text">
+            </div>
+
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Ед.измерения площади/длины
+                </div>
+                <input value="{{object.units_measurement}}" formControlName="units_measurement" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__pair">
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Собственник
+                </div>
+                <input value="{{object.owner}}" formControlName="owner" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Фактический пользователь
+                </div>
+                <input value="{{object.actual_user}}" formControlName="actual_user" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__additional">
+            <div *ngFor="let item of additional_fields.fields; index as i;" class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    {{item.title}}
+                </div>
+                <div style="display: flex;">
+                    <input value="{{item.data}}" name="addField"  (change)="onChangeAddField($event,i)" class="createproject-field__input" type="text">
+                    <img (click)="onDeleteAddField(i)" style="cursor: pointer;" width="16" height="16" class="float:right;" src="../../../../assets/delete_additional.png" alt="">
+                </div>
+
+            </div>
+        </div>
+        <div class="createproject-btn__filebuttons">
+            <div class="createproject-btn__filebutton">
+                <img src="../../../../assets/object-photo.svg" alt="">
+                <span>Добавить фото</span>
+                
+            </div>
+            <div class="createproject-btn__filebutton">
+                <img src="../../../../assets/object-video.svg" alt="">
+                <span>Добавить видео</span>
+            </div>
+            <div class="createproject-btn__filebutton">
+                <img src="../../../../assets/object-map.svg" alt="">
+                <span>Добавить на карту</span>
+            </div>
+        </div>
+        <div class="createproject-btns">
+            <div (click)="openModal()" class="createproject-btn">
+                <img src="../../../../assets/card-edit.svg" alt="">
+                <span>Добавить элемент на карточку</span>
+            </div>
+            <button  type="submit" [disabled]="!objectForm.valid" class="createproject-btn">
+                <span >Сохранить</span>
+            </button>
+        </div>
+    </form>
+
+
+</div>
+
+<!-- <ngx-doc-viewer [url]="doc" style="width:100%;height:80vh;"></ngx-doc-viewer> -->
+
+<div *ngIf="isOpen" class="modal">
+    <div class="createproject">
+        <div class="createproject-title">
+            Добавление элемента на карточку
+            <div class="createproject-title-line"></div>
+        </div>
+        <form [formGroup]="additionalForm" (ngSubmit)="addField()" class="createproject-fields">
+            <div class="createproject-fields__pair">
+                <div class="createproject-field_pair">
+                    <div class="createproject-field__title">
+                        Заголовок элемента
+                    </div>
+                    <input placeholder="Введите заголовок элемента" formControlName="title" class="createproject-field__input" type="text">
+                </div>
+            </div>
+            <div class="createproject-fields__pair">
+                <div class="createproject-field_pair">
+                    <div class="createproject-field__title">
+                        Тип данных
+                    </div>
+                    <input placeholder="Введите тип данных" formControlName="type" class="createproject-field__input" type="text">
+                </div>
+    
+            </div>
+            <div class="createproject-fields__pair">
+                <div class="createproject-field_pair">
+                    <div class="createproject-field__title">
+                        Данные
+                    </div>
+                    <input placeholder="Введите данные" formControlName="data" class="createproject-field__input" type="text">
+                </div>
+    
+            </div>
+    
+            <div class="createproject-btns">
+                <button type="submit" [disabled]="!objectForm.valid" class="createproject-btn">
+                    <span >Добавить</span>
+                </button>
+                <button (click)="openModal()" class="createproject-btn">
+                    <span >Отмена</span>
+                </button>
+            </div>
+        </form>
+    
+    
+    </div>
+</div>
+
+<div class="text-center">
+    <input class="form-control" type="file" 
+            (change)="onChange($event)">
+  
+    <button (click)="onUpload()" 
+        class="btn btn-success">
+        Upload
+    </button>
+</div>
+  
+<!-- Shareable short link of  uploaded file -->
+<div class="container text-center jumbotron"
+    *ngIf="shortLink">
+    <h2> Visit Here</h2>
+    <a href="{{shortLink}}">{{shortLink}}</a>
+</div>
+  
+<!--Flag variable is used here-->
+<div class="container" *ngIf="loading">
+    <h3>Loading ...</h3>
+</div>

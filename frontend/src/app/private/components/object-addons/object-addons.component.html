@@ -1,0 +1,279 @@
+<div class="header">
+    <div class="header-left">
+        <div class="header-mid__title">
+            <b>Карточка объекта</b>
+        </div>
+        <div class="header-mid__title">
+            Реестр объектов
+        </div>
+    </div>
+    <div class="header-mid">
+        <div class="header-logo">
+            <img src="../../../../assets/houses.svg" alt="">
+        </div>
+        <div class="header-title">EstateTrack</div>
+
+    </div>
+    <div class="header-right">
+        <div class="header-mid__title">
+            Решения по объектам
+        </div>
+        <div class="header-mid__title">
+            Уведомления
+        </div>
+        <img src="../../../../assets/profile-icon.svg" alt="">
+        <div class="header-right__item-burger">
+            <input id="menu-toggle" type="checkbox" />
+            <label id="hamburger-menu" class='menu-button-container' for="menu-toggle">
+                <div class="menu-button__burger">
+                    <div class='menu-button'></div>
+                </div>
+                <nav id="sidebar-menu">
+                    <ul>
+                        <li>Карточка объектов</li>
+                        <li><a href="#">Решения по объектам</a></li>
+                        <li>Уведомления</li>
+                    </ul>
+                </nav>
+            </label>
+
+        </div>
+    </div>
+</div>
+<div class="stepper">
+    <div [routerLink]="['../../object-card', object.id]" class="stepper-step">1</div>
+    <div class="stepper-line"></div>
+    <div style="border: 3px solid #004987;" class="stepper-step">2</div>
+</div>
+<div class="works-tabs">
+    <div class="work-tab">
+        Загрузить данные из XML
+    </div>
+    <div class="createproject-title">
+        Дополнение объекта
+        <div class="createproject-title-line"></div>
+    </div>
+    <div class="work-tab">
+        Загрузить данные с помощью API
+    </div>
+</div>
+<details open class="createproject">
+    <summary class="createproject-title">
+        <img src="../../../../assets/dropdown.svg" alt="">
+        Характеристики объекта
+    </summary>
+    <div class="createproject-fields">
+        <div class="createproject-fields__four">
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Площадь по БТН
+                </div>
+                <input placeholder="Обладает признаками СС" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Площадь пятна застройки (кв. м)
+                </div>
+                <input placeholder="5003.79" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Высота объекта (м.)
+                </div>
+                <input placeholder="30" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Материал стен
+                </div>
+                <input placeholder="Кирпич" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__pair">
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Год начала строительства
+                </div>
+                <input placeholder="2010" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Год окончания строительства
+                </div>
+                <input placeholder="2012" class="createproject-field__input" type="text">
+            </div>
+        </div>
+
+        <div class="createproject-btns">
+            <div class="createproject-btn">
+                <img src="../../../../assets/card-edit.svg" alt="">
+                <span>Добавить элемент на карточку</span>
+            </div>
+            <div class="createproject-btn">
+                <span>Сохранить</span>
+            </div>
+        </div>
+    </div>
+
+
+</details>
+
+
+<details class="createproject">
+    <summary class="createproject-title">
+        <img src="../../../../assets/dropdown.svg" alt="">
+        Остальное об объекте
+    </summary>
+    <div class="createproject-fields">
+        <div class="createproject-fields__pair">
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Блокировка госуслуг
+                </div>
+                <input placeholder="нет" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Проверяющее подразделение
+                </div>
+                <input placeholder="УКОН ПО ЗАО" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__pair">
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Номер письма в ЭДО
+                </div>
+                <input placeholder="8902" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Дата письма в ЭДО
+                </div>
+                <input placeholder="15.02.2009" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__triple">
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Комментарий к типу объекта 
+                </div>
+                <input placeholder="Плоскостное сооружение" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Религия
+                </div>
+                <input placeholder="" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    ОКН
+                </div>
+                <input placeholder="" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__triple">
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Демонтирован
+                </div>
+                <input placeholder="Да" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Дата подтверждения демонтажа
+                </div>
+                <input placeholder="13.09.12" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Лицо, осуществляющее демонтаж
+                </div>
+                <input placeholder="" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__triple">
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Выявлен
+                </div>
+                <input placeholder="ГИН" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    ОИВ
+                </div>
+                <input placeholder="" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Внутренняя реконстуркция
+                </div>
+                <input placeholder="Нет" class="createproject-field__input" type="text">
+            </div>
+        </div>
+
+        <div class="createproject-fields__pair">
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Ручная корректировка состояния
+                </div>
+                <input placeholder="Нет" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Комментарий к ручной корректировке
+                </div>
+                <input placeholder="" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__pair">
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Рассматривается в рамках
+                </div>
+                <input placeholder="819-ПП" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field_pair">
+                <div class="createproject-field__title">
+                    Приложения 819-ПП
+                </div>
+                <input placeholder="" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-fields__triple">
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Количество объектов
+                </div>
+                <input placeholder="2" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Количество жалоб от граждан
+                </div>
+                <input placeholder="0" class="createproject-field__input" type="text">
+            </div>
+            <div class="createproject-field__triple">
+                <div class="createproject-field__title">
+                    Констурктив
+                </div>
+                <input placeholder="" class="createproject-field__input" type="text">
+            </div>
+        </div>
+        <div class="createproject-btns">
+            <div class="createproject-btn">
+                <span>Удалить</span>
+            </div>
+            <div class="createproject-btn">
+                <img src="../../../../assets/card-edit.svg" alt="">
+                <span>Добавить элемент на карточку</span>
+            </div>
+            <div class="createproject-btn">
+                <span>Сохранить</span>
+            </div>
+        </div>
+    </div>
+</details>
+<div class="footer"></div>

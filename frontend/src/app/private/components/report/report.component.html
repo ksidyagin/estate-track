@@ -1,0 +1,80 @@
+<div class="header">
+    <div class="header-left">
+        <div class="header-mid__title">
+            <b>Карточка объекта</b>
+        </div>
+        <div [routerLink]="['../../registry']" class="header-mid__title">
+            Реестр объектов
+        </div>
+    </div>
+    <div class="header-mid">
+        <div class="header-logo">
+            <img src="../../../../assets/houses.svg" alt="">
+        </div>
+        <div class="header-title">EstateTrack</div>
+
+    </div>
+    <div class="header-right">
+        <div class="header-mid__title">
+            Решения по объектам
+        </div>
+        <div class="header-mid__title">
+            Уведомления
+        </div>
+        <img src="../../../../assets/profile-icon.svg" alt="">
+        <div class="header-right__item-burger">
+            <input id="menu-toggle" type="checkbox" />
+            <label id="hamburger-menu" class='menu-button-container' for="menu-toggle">
+                <div class="menu-button__burger">
+                    <div class='menu-button'></div>
+                </div>
+                <nav id="sidebar-menu">
+                    <ul>
+                        <li>Карточка объектов</li>
+                        <li><a href="#">Решения по объектам</a></li>
+                        <li>Уведомления</li>
+                    </ul>
+                </nav>
+            </label>
+
+        </div>
+    </div>
+</div>
+
+<div [routerLink]="['../registry']" class="works-tabs">
+    <div class="work-tab">
+        Реестр
+    </div>
+    <div style="background: #004987; color: white;" class="work-tab">
+        Отчеты
+    </div>
+</div>
+<div class="createproject">
+    <div class="createproject-title">
+        Загрузка отчета
+        <div class="createproject-title-line"></div>
+    </div>
+    <div class="report-descr">
+        Выберете пункт(ы), который(ые) должн(ы) быть отражен(ы) в отчете
+    </div>
+    <div class="checkfilters">
+        <label class="checkfilter">объекты в работе
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="checkfilter">просроченные объекты
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+    </div>
+
+    <div class="createproject-btns">
+        <div class="createproject-btn">
+            <img src="../../../../assets/card-edit.svg" alt="">
+            <span>Создать свой фильтр</span>
+        </div>
+        <button class="createproject-btn">
+            <span >Скачать отчет</span>
+        </button>
+    </div>
+</div>
