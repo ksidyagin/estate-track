@@ -2,35 +2,37 @@ import { ApiProperty } from "@nestjs/swagger";
 import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class UserEntity {
+export class WritEntity {
 
   @PrimaryGeneratedColumn()
   @ApiProperty({nullable: false })
   id: number;
 
-  @Column({unique: true})
+  @Column()
   @ApiProperty({nullable: true })
-  username: string;
-
-  @Column({unique: true})
-  @ApiProperty({nullable: true })
-  email: string;
-
-  @Column({select: false})
-  @ApiProperty({nullable: true })
-  password: string;
+  cadastr_number: string;
 
   @Column()
   @ApiProperty({nullable: true })
-  role: string;
+  promzone: string;
 
   @Column()
-  @ApiProperty()
-  group: string;
+  @ApiProperty({nullable: true })
+  protocol: string;
 
-  @BeforeInsert()
-  emailToLowerCase() {
-    this.email = this.email.toLowerCase();
-  }
+  @Column()
+  @ApiProperty({nullable: true })
+  first_review: string;
+  
+  @Column()
+  @ApiProperty({default: 0 })
+  count_reviews: number;
 
+  @Column()
+  @ApiProperty({nullable: true })
+  note: string;
+
+  @Column()
+  @ApiProperty({nullable: true })
+  object_id: number;
 }

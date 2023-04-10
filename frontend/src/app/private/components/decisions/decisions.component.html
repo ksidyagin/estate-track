@@ -1,0 +1,128 @@
+<div class="header">
+    <div class="header-left">
+        <div style="color: gainsboro; cursor: default;" class="header-mid__title">
+            Карточка объекта
+        </div>
+        <div [routerLink]="['../registry']" class="header-mid__title">
+            Реестр объектов 
+        </div>
+    </div>
+    <div class="header-mid">
+        <div class="header-logo">
+            <img src="../../../../assets/houses.svg" alt="">
+        </div>
+        <div class="header-title">EstateTrack</div>
+
+    </div>
+    <div class="header-right">
+        <div [routerLink]="['../../decisions']" class="header-mid__title">
+            <b>Решения по объектам</b>
+        </div>
+        <div class="header-mid__title">
+            Уведомления
+        </div>
+        <img src="../../../../assets/profile-icon.svg" alt="">
+        <div class="header-right__item-burger">
+            <input id="menu-toggle" type="checkbox" />
+            <label id="hamburger-menu" class='menu-button-container' for="menu-toggle">
+                <div class="menu-button__burger">
+                    <div class='menu-button'></div>
+                </div>
+                <nav id="sidebar-menu">
+                    <ul>
+                        <li>Карточка объектов</li>
+                        <li><a href="#">Решения по объектам</a></li>
+                        <li>Уведомления</li>
+                    </ul>
+                </nav>
+            </label>
+
+        </div>
+    </div>
+</div>
+
+<div style="margin-bottom: 50px;" class="works-tabs">
+    <div style="background: #004987; color: white;" class="work-tab">
+        Решения
+    </div>
+
+    <div class="work-tab">
+        Календарь событий
+    </div>
+    <div class="work-tab">
+        Организация рабочей группы
+    </div>
+    <div class="work-tab">
+        Данные для рабочей группы
+    </div>
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+    <img src="../../../../assets/search-object.svg" alt=""> 
+    <input autocomplete="off" style="width: 80%; border: 2px solid #004987; margin: 0; " class="createproject-field__input" type="text" name="search" [(ngModel)]="searchText" placeholder="&#61442;  Поиск объектов">
+</div>
+
+<details *ngFor="let item of objects | filter:searchText" open class="createproject">
+    <summary class="createproject-title">
+        Решение по объекту {{item.object_id}}
+        <div  class="createproject-status">
+            {{item.status}}
+        </div>
+    </summary>
+
+    <div class="createproject-field_pair">
+        <div class="createproject-field__title">
+            Новое поручение
+        </div>
+        <textarea value="{{item.new_asignment}}" style="height: 93px;" class="createproject-field__input" placeholder="Поручение 1" name="" id=""></textarea>
+    </div>
+    <div class="createproject-field_pair">
+        <div class="createproject-field__title">
+            Прошлое поручение
+        </div>
+        <textarea value="{{item.past_asignment}}" style="height: 93px;" class="createproject-field__input" placeholder="" name="" id=""></textarea>
+    </div>
+    <div class="createproject-field_pair">
+        <div class="createproject-field__title">
+            Ответственный
+        </div>
+        <input value="{{item.worker}}" class="createproject-field__input" type="text">
+    </div>
+    <div class="createproject-field_pair">
+        <div class="createproject-field__title">
+            Срок исполнения
+        </div>
+        <input value="{{item.deadline}}" class="createproject-field__input" type="text">
+    </div>
+    <div class="createproject-fields__pair">
+        <div class="createproject-field_pair">
+            <div class="createproject-field__title">
+                Таймер
+            </div>
+            <input value="{{item.timer}}" class="createproject-field__input" type="text">
+        </div>
+        <div class="createproject-field_pair">
+            <div class="createproject-field__title">
+                Кол-во принятых решений
+            </div>
+            <input value="{{item.count_decisions}}" class="createproject-field__input" type="text">
+        </div>
+    </div>
+    <div class="createproject-field_pair">
+        <div class="createproject-field__title">
+            Документы
+        </div>
+        <div style="width: 35%;" class="createproject-field__input">
+            {{item.documents}}
+        </div>
+    </div>
+    <div class="createproject-btns">
+        <button  class="createproject-btn">
+            <span >Принять протокол</span>
+        </button>
+        <button  class="createproject-btn">
+            <span >Работы завершены</span>
+        </button>
+    </div>
+</details>
+<div class="footer"></div>

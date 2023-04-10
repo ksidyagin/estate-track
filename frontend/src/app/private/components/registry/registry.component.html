@@ -1,6 +1,6 @@
 <div class="header">
     <div class="header-left">
-        <div class="header-mid__title">
+        <div style="color: gainsboro; cursor: default;" class="header-mid__title">
             Карточка объекта
         </div>
         <div class="header-mid__title">
@@ -15,7 +15,7 @@
 
     </div>
     <div class="header-right">
-        <div class="header-mid__title">
+        <div [routerLink]="['../decisions']" class="header-mid__title">
             Решения по объектам
         </div>
         <div class="header-mid__title">
@@ -52,12 +52,12 @@
 </div>
 <details open class="createproject">
     <summary class="createproject-title">
-        <div><img src="../../../../assets/dropdown.svg" alt=""> Dashboard</div> 
+        Dashboard
     </summary>
     <div class="dashboard-info">
         <div class="dashboard-item">
             <div class="dashboard-item__count">
-                10
+                {{new_objects}}
             </div>
             <div class="dashboard-item__line">
             </div>
@@ -67,7 +67,7 @@
         </div>
         <div style="background: #004987;" class="dashboard-item">
             <div style="color: white;" class="dashboard-item__count">
-                5
+                {{in_work}}
             </div>
             <div class="dashboard-item__line">
             </div>
@@ -77,7 +77,7 @@
         </div>
         <div style="background: #456885;" class="dashboard-item">
             <div style="color: white;" class="dashboard-item__count">
-                2
+                {{deadline}}
             </div>
             <div class="dashboard-item__line">
             </div>
@@ -87,25 +87,39 @@
         </div>
         <div style="background: white;" class="dashboard-item">
             <div class="dashboard-item__count">
-                1
+                {{ended}}
             </div>
             <div class="dashboard-item__line">
             </div>
             <div class="dashboard-item__descr">
-                у объекта работы завершены
+                работы завершены
             </div>
         </div>
     </div>
 
 </details>
-<details *ngFor="let item of objects" open class="createproject">
+<div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+    <img src="../../../../assets/search-object.svg" alt=""> 
+    <input autocomplete="off" style="width: 80%; border: 2px solid #004987; margin: 0; " class="createproject-field__input" type="text" name="search" [(ngModel)]="searchText" placeholder="&#61442;  Поиск объектов">
+  </div>
+
+<details *ngFor="let item of objects | filter:searchText" open class="createproject">
     <summary class="createproject-title">
-        <div><img src="../../../../assets/dropdown.svg" alt=""> Объект {{item.id}}</div> 
-        <div class="createproject-status">
-            Новый
+        Объект {{item.id}}
+        <div *ngIf="item.status1=='новые объекты'" class="createproject-status">
+            новый
+        </div>
+        <div *ngIf="item.status1=='объекты в работе'" class="createproject-status">
+            в работе
+        </div>
+        <div *ngIf="item.status1=='выход за срок поручения'" style="color: red; border-color: red;" class="createproject-status">
+            выход за срок
+        </div>
+        <div *ngIf="item.status1=='работы завершены'" class="createproject-status">
+            работы завершены
         </div>
     </summary>
-    <div [routerLink]="['../object-card', item.id]" class="object-info">
+    <div class="object-info">
         <div class="object-info-item">
             <b>Округ</b> : {{item.area}}
         </div>
@@ -113,7 +127,7 @@
             <b>Район</b> : {{item.district}}
         </div>
         <div class="object-info-item">
-            <b>Адрес</b> : {{item.address}}
+            <b>Адрес</b> : {{item.object_address}}
         </div>
         <div class="object-info-item">
             <b>Состояние объекта</b> : {{item.object_condition}}

@@ -28,6 +28,7 @@ export class UserService {
               // overwrite the user password with the hash, to store the hash in the database
               newUser.password = passwordHash;
               newUser.role = 'user';
+              newUser.group = 'group';
               return from(this.userRepository.save(newUser)).pipe(
                 switchMap((user: UserI) => this.findOne(user.id))
               );

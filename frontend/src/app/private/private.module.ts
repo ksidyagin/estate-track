@@ -5,11 +5,13 @@ import { PrivateRoutingModule } from './private-routing.module';
 import { ObjectCardComponent } from './components/object-card/object-card.component';
 import { ObjectAddonsComponent } from './components/object-addons/object-addons.component';
 import { RegistryComponent } from './components/registry/registry.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { RegistryObjectComponent } from './components/registry-object/registry-object.component';
 import { ReportComponent } from './components/report/report.component';
-
+import { NgChartsModule } from 'ng2-charts';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DecisionsComponent } from './components/decisions/decisions.component';
 
 
 @NgModule({
@@ -19,13 +21,17 @@ import { ReportComponent } from './components/report/report.component';
     ObjectAddonsComponent,
     RegistryComponent,
     RegistryObjectComponent,
-    ReportComponent
+    ReportComponent,
+    DecisionsComponent
   ],
   imports: [
     CommonModule,
     PrivateRoutingModule,
     ReactiveFormsModule,
-    NgxDocViewerModule
+    NgxDocViewerModule,
+    NgChartsModule,
+    Ng2SearchPipeModule,
+    FormsModule
   ]
 })
 export class PrivateModule { }

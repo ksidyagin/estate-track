@@ -1,8 +1,8 @@
 export interface UserI {
   id?: number;
   username?: string;
-  email: string;
+  email?: string;
   password?: string;
   role?: string;
-
+  group?: string;
 }

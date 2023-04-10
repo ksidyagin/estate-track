@@ -103,11 +103,9 @@ input {
     font-size: 28px;
     line-height: 38px;
     color: #000000;
-    margin-bottom: 24px;
+    margin-bottom: 34px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
 }
 .createproject-status{
     font-family: 'Oranienbaum';
@@ -125,6 +123,7 @@ input {
     justify-content: center;
     padding: 5px 21px;
     cursor: pointer;
+    float: right;
 }
 .createproject-title-line{
     background: #000000;

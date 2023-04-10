@@ -9,6 +9,9 @@ import { JwtModule } from '@auth0/angular-jwt';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { NgChartsModule } from 'ng2-charts';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 
 export function tokenGetter() {
   return localStorage.getItem("nestjs_chat_app");
@@ -26,6 +29,9 @@ export function tokenGetter() {
     MatIconModule,
     MatDialogModule,
     NgxDocViewerModule,
+    NgChartsModule,
+    Ng2SearchPipeModule,
+    FormsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter

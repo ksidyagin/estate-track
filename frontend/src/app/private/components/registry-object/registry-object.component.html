@@ -1,9 +1,9 @@
 <div class="header">
     <div class="header-left">
-        <div class="header-mid__title">
+        <div [routerLink]="['../../object-card',object.id]" class="header-mid__title">
             Карточка объекта
         </div>
-        <div class="header-mid__title">
+        <div [routerLink]="['../../registry']" class="header-mid__title">
             <b>Реестр объектов</b> 
         </div>
     </div>
@@ -15,7 +15,7 @@
 
     </div>
     <div class="header-right">
-        <div class="header-mid__title">
+        <div [routerLink]="['../../decisions']" class="header-mid__title">
             Решения по объектам
         </div>
         <div class="header-mid__title">
@@ -42,18 +42,18 @@
 </div>
 
 <div class="works-tabs">
-    <div style="background: #004987; color: white;" class="work-tab">
+    <div [routerLink]="['../../registry']" style="background: #004987; color: white;" class="work-tab">
         Реестр
     </div>
 
-    <div [routerLink]="['../report']" class="work-tab">
+    <div [routerLink]="['../../report']" class="work-tab">
         Отчеты
     </div>
 </div>
 
 <details open class="createproject">
     <summary class="createproject-title">
-        <div><img src="../../../../assets/dropdown.svg" alt=""> Объект {{object.id}}</div> 
+        Объект {{object.id}}
         <div class="createproject-status">
             Новый
         </div>
@@ -66,7 +66,7 @@
             <b>Район</b> : {{object.district}}
         </div>
         <div class="object-info-item">
-            <b>Адрес</b> : {{object.address}}
+            <b>Адрес</b> : {{object.object_address}}
         </div>
         <div class="object-info-item">
             <b>Состояние объекта</b> : {{object.object_condition}}
@@ -84,27 +84,142 @@
             <b>Фактический пользователь</b> : {{object.actual_user}}
         </div>
     </div>
-    <div class="registry-open">
-        Открыть
+
+</details>
+<details open class="createproject">
+    <summary class="createproject-title">
+        Фото/видео объекта
+    </summary>
+    <div style="display: flex; gap: 15px;">
+        <img src="../../../../assets/1jpg.png" alt="">
+        <img src="../../../../assets/2.png" alt="">
     </div>
 
 </details>
 <details open class="createproject">
     <summary class="createproject-title">
-        <div><img src="../../../../assets/dropdown.svg" alt=""> Фото/видео объекта</div> 
+    Объект на карте
     </summary>
-
+    <div id="map" style="width: 100%; height: 600px">
+    </div>
 </details>
 <details open class="createproject">
     <summary class="createproject-title">
-        <div><img src="../../../../assets/dropdown.svg" alt=""> Объект на карте</div> 
+        Повестка по объекту
     </summary>
-
-</details>
-<details open class="createproject">
-    <summary class="createproject-title">
-        <div><img src="../../../../assets/dropdown.svg" alt=""> Повестка по объекту</div> 
-    </summary>
-
+    <div class="table">
+        <div class="table-row1">
+            <div class="table-cell">
+                #
+            </div>
+            <div class="table-cell">
+                Адрес
+            </div>
+            <div class="table-cell">
+                АО г. Москвы
+            </div>
+            <div class="table-cell">
+                Кадастр. номер
+            </div>
+            <div class="table-cell">
+                Промзона
+            </div>
+            <div class="table-cell">
+                № прот-ла
+            </div>
+            <div class="table-cell">
+                Дата первичного рассмотрения
+            </div>
+            <div class="table-cell">
+                Кол-во расммотр.
+            </div>
+            <div style="border-right: none;" class="table-cell">
+                Примечание
+            </div>
+        </div>
+        <div class="table-row2">
+            <div class="table-cell">
+                {{object.id}}
+            </div>
+            <div class="table-cell">
+                {{object.object_address}}
+            </div>
+            <div class="table-cell">
+                {{object.area}}
+            </div>
+            <div style="flex-wrap: wrap;" class="table-cell">
+                {{object.status2}}
+            </div>
+            <div class="table-cell">
+                -
+            </div>
+            <div class="table-cell">
+                -
+            </div>
+            <div class="table-cell">
+                -
+            </div>
+            <div class="table-cell">
+                -
+            </div>
+            <div style="border-right: none;" class="table-cell">
+                -
+            </div>
+        </div>
+    </div>
+    <div class="createproject-field_pair">
+        <div class="createproject-field__title">
+            Новое поручение
+        </div>
+        <textarea style="height: 93px;" class="createproject-field__input" placeholder="Поручение 1" name="" id=""></textarea>
+    </div>
+    <div class="createproject-field_pair">
+        <div class="createproject-field__title">
+            Прошлое поручение
+        </div>
+        <textarea style="height: 93px;" class="createproject-field__input" placeholder="" name="" id=""></textarea>
+    </div>
+    <div class="createproject-field_pair">
+        <div class="createproject-field__title">
+            Ответственный
+        </div>
+        <input value="Попов И.С." class="createproject-field__input" type="text">
+    </div>
+    <div class="createproject-field_pair">
+        <div class="createproject-field__title">
+            Срок исполнения
+        </div>
+        <input value="16.03.2023" class="createproject-field__input" type="text">
+    </div>
+    <div class="createproject-fields__pair">
+        <div class="createproject-field_pair">
+            <div class="createproject-field__title">
+                Таймер
+            </div>
+            <input value="15 д. 09:05:50" class="createproject-field__input" type="text">
+        </div>
+        <div class="createproject-field_pair">
+            <div class="createproject-field__title">
+                Кол-во принятых решений
+            </div>
+            <input value="0" class="createproject-field__input" type="text">
+        </div>
+    </div>
+    <div class="createproject-field_pair">
+        <div class="createproject-field__title">
+            Документы
+        </div>
+        <div style="width: 35%;" class="createproject-field__input">
+            дорожная карта по объекту 1.pdf
+        </div>
+    </div>
+    <div class="createproject-btns">
+        <button  class="createproject-btn">
+            <span >Принять протокол</span>
+        </button>
+        <button  class="createproject-btn">
+            <span >Работы завершены</span>
+        </button>
+    </div>
 </details>
 <div class="footer"></div>

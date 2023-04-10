@@ -6,6 +6,7 @@ import { ObjectAddonsComponent } from './components/object-addons/object-addons.
 import { RegistryComponent } from './components/registry/registry.component';
 import { RegistryObjectComponent } from './components/registry-object/registry-object.component';
 import { ReportComponent } from './components/report/report.component';
+import { DecisionsComponent } from './components/decisions/decisions.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'report',
     component: ReportComponent
+  },
+  {
+    path: 'decisions',
+    component: DecisionsComponent
   },
   {
     path: '**',

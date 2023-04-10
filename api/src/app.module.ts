@@ -8,6 +8,8 @@ import { AuthModule } from './auth/auth.module';
 import { ObjectModule } from './object/object.module';
 import { ParseModule } from './parse/parse.module';
 import { FilesModule } from './files/files.module';
+import { WritModule } from './writ/writ.module';
+import { DecisionModule } from './decision/decision.module';
 
 @Module({
   imports: [
@@ -32,7 +34,9 @@ import { FilesModule } from './files/files.module';
     AuthModule,
     ObjectModule,
     ParseModule,
-    FilesModule
+    FilesModule,
+    WritModule,
+    DecisionModule
   ],
   controllers: [AppController],
   providers: [AppService],

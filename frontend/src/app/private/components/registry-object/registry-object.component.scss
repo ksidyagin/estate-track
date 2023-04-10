@@ -105,9 +105,7 @@ input {
     color: #000000;
     margin-bottom: 24px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
 }
 .createproject-status{
     font-family: 'Oranienbaum';
@@ -125,6 +123,7 @@ input {
     justify-content: center;
     padding: 5px 21px;
     cursor: pointer;
+    float: right;
 }
 .createproject-title-line{
     background: #000000;
@@ -133,7 +132,6 @@ input {
     margin: 0 auto;
 }
 .createproject-field_pair {
-    width: 45%;
     margin: 14px 0;
 }
 
@@ -145,7 +143,7 @@ input {
 .createproject-fields__pair{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 10%;
 }
 .createproject-fields__triple{
     display: flex;
@@ -180,6 +178,8 @@ input {
     font-size: 20px;
     line-height: 27px;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 }
 .createproject-btn__filebuttons{
     display: flex;
@@ -221,7 +221,8 @@ input {
     background: #004987;
     border-radius: 10px;
     justify-content: center;
-    cursor: pointer; 
+    cursor: pointer;
+    border: none;
 }
 .createproject-forgot-pass {
     font-family: 'Open Sans';
@@ -682,4 +683,36 @@ input {
     font-size: 26px;
     line-height: 30px;
     color: #004987;
+}
+
+.table{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 18px;
+}
+.table-row1{
+    border-bottom: #000000 1px solid;
+    height: 97px;
+    display: flex;
+    flex-direction: row;
+}
+.table-cell{
+    font-family: 'Oranienbaum';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 28px;
+    color: #000000;
+    text-align: center;
+    border-right: 1px solid black;
+    width: 11.1%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.table-row2{
+    border-bottom: #000000 1px solid;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
 }

@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./report.component.scss']
 })
 export class ReportComponent {
+  isOpen=false;
 
+  openModal(){
+    this.isOpen = !this.isOpen;
+  }
 }

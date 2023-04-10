@@ -15,7 +15,7 @@
 
     </div>
     <div class="header-right">
-        <div class="header-mid__title">
+        <div [routerLink]="['../decisions']" class="header-mid__title">
             Решения по объектам
         </div>
         <div class="header-mid__title">
@@ -69,12 +69,43 @@
     </div>
 
     <div class="createproject-btns">
-        <div class="createproject-btn">
+        <div (click)="openModal()" class="createproject-btn">
             <img src="../../../../assets/card-edit.svg" alt="">
             <span>Создать свой фильтр</span>
         </div>
         <button class="createproject-btn">
             <span >Скачать отчет</span>
         </button>
+    </div>
+</div>
+
+<div *ngIf="isOpen" class="modal">
+    <div class="createproject">
+        <div class="createproject-title">
+            Добавление собственного фильтра
+            <div class="createproject-title-line"></div>
+        </div>
+        <form  class="createproject-fields">
+            <div class="createproject-fields__pair">
+                <div class="createproject-field_pair">
+                    <div class="createproject-field__title">
+                        Введите слово, по которому будут отобраны объекты
+                    </div>
+                    <input placeholder="например, округ Москвы: Северный" class="createproject-field__input" type="text">
+                </div>
+            </div>
+
+    
+            <div class="createproject-btns">
+                <button class="createproject-btn">
+                    <span >Добавить</span>
+                </button>
+                <button (click)="openModal()" class="createproject-btn">
+                    <span >Отмена</span>
+                </button>
+            </div>
+        </form>
+    
+    
     </div>
 </div>
