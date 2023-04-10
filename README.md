@@ -60,3 +60,21 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+# Создание базы данных Postgresql
+
+
+### Через консоль:
+host: 'localhost', port: 5432,database: 'db', username: 'postgres', password: '1111'
+```bash
+$ sudo apt-get update
+$ sudo apt-get install postgresql postgresql-contrib
+$ su - postgres
+$ createuser postgres
+$ createdb db
+```
+### Через pgAdmin4:
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads - скачать postgresql с клиентом pgAdmin4
+
+см. файл instruction.png
+(Server->ПКМ->Register->Server->Connection->Ввод информации->Save)
+

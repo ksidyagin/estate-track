@@ -62,8 +62,8 @@
         <button type="submit" [disabled]="!form.valid" class="login-btn">
             Войти
         </button>
-        <div class="login-forgot-pass">
-            Забыли пароль?
+        <div [routerLink]="['../register']" class="login-forgot-pass">
+            Зарегистрироваться
         </div>
     </form>
 </div>
